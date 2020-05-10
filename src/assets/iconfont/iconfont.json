@@ -1,0 +1,121 @@
+{
+  "id": "1764547",
+  "name": "mymemo",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "7213582",
+      "name": "Renewable energy",
+      "font_class": "Renewableenergy",
+      "unicode": "e67f",
+      "unicode_decimal": 59007
+    },
+    {
+      "icon_id": "12265785",
+      "name": "cancel_dafalut",
+      "font_class": "cancel_dafalut",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
+      "icon_id": "46286",
+      "name": "delete",
+      "font_class": "delete",
+      "unicode": "e656",
+      "unicode_decimal": 58966
+    },
+    {
+      "icon_id": "247449",
+      "name": "complete",
+      "font_class": "complete",
+      "unicode": "e69d",
+      "unicode_decimal": 59037
+    },
+    {
+      "icon_id": "11982644",
+      "name": "delete, close, cancel",
+      "font_class": "deleteclosecancel",
+      "unicode": "e9cd",
+      "unicode_decimal": 59853
+    },
+    {
+      "icon_id": "269810",
+      "name": "more",
+      "font_class": "more",
+      "unicode": "e6ad",
+      "unicode_decimal": 59053
+    },
+    {
+      "icon_id": "12310782",
+      "name": "cat",
+      "font_class": "cat2",
+      "unicode": "e8e0",
+      "unicode_decimal": 59616
+    },
+    {
+      "icon_id": "13998422",
+      "name": "back",
+      "font_class": "sidebar_back_hov",
+      "unicode": "e689",
+      "unicode_decimal": 59017
+    },
+    {
+      "icon_id": "249354",
+      "name": "新人课程",
+      "font_class": "xinrenkecheng",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "448709",
+      "name": "pen",
+      "font_class": "pen",
+      "unicode": "e62c",
+      "unicode_decimal": 58924
+    },
+    {
+      "icon_id": "1075246",
+      "name": "cat (1)",
+      "font_class": "cat1",
+      "unicode": "e654",
+      "unicode_decimal": 58964
+    },
+    {
+      "icon_id": "1393593",
+      "name": "back",
+      "font_class": "back",
+      "unicode": "e6d8",
+      "unicode_decimal": 59096
+    },
+    {
+      "icon_id": "6808017",
+      "name": "Cat",
+      "font_class": "Cat",
+      "unicode": "ed14",
+      "unicode_decimal": 60692
+    },
+    {
+      "icon_id": "7442043",
+      "name": "back",
+      "font_class": "back1",
+      "unicode": "e64d",
+      "unicode_decimal": 58957
+    },
+    {
+      "icon_id": "10173003",
+      "name": "diary",
+      "font_class": "diary",
+      "unicode": "e8cb",
+      "unicode_decimal": 59595
+    },
+    {
+      "icon_id": "11650536",
+      "name": "cat",
+      "font_class": "cat",
+      "unicode": "e7b6",
+      "unicode_decimal": 59318
+    }
+  ]
+}
