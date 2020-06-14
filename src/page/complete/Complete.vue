@@ -6,13 +6,14 @@
     </nav-bar>
     <my-scroll class="myscroll" ref="myscroll">
       <event-list>
-        <event-item v-for="item in complete" :key="item.time" :event="item" @renew="renewEvent($event)" @remove="removeEvent($event)"></event-item>
+        <event-item v-for="item in complete" :key="item.time" :event="item" @renew="renewEvent($event)" @remove="removeEvent($event)" @showDetail="showDetail($event)"></event-item>
       </event-list>
     </my-scroll>
     <div class="mask" v-show="maskState"></div>
     <confirm-prompt class="prompt" v-if="promptState" :content="'是否'+promptInfo+'？'" confirm="确认" cancel="取消" @cancel="pcancel" @confirm="pconfirm(currentEvent.date,currentEvent.time)"></confirm-prompt>
     <empty-list v-show="complete.length == 0" txt="下次一定好好来！"></empty-list>
     <my-cue class="mycue" :showTime="false" v-if="complete.length < 4 && complete.length > 0"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
+    <detail v-if="detailInfo.state" :content="detailInfo.content" @close="closeDetail"></detail>
   </div>  
 </template>
 
@@ -23,6 +24,7 @@ import ConfirmPrompt from "components/content/animate/ConfirmPrompt"
 import EventItem from "components/content/list/EventItem"
 import EventList from "components/content/list/EventList"
 import EmptyList from "components/content/list/EmptyList"
+import Detail from "components/content/blackboard/Detail"
 import MyCue from "components/content/animate/MyCue"
 import {mapGetters,mapActions} from "vuex"
 export default {
@@ -33,14 +35,19 @@ export default {
     EventItem,
     EventList,
     MyScroll,
-    MyCue
+    MyCue,
+    Detail
   },
   data(){
     return {
       maskState:false,
       promptState:false,
       promptInfo:'',
-      currentEvent:()=>{}
+      currentEvent:()=>{},
+      detailInfo:{
+        state:false,
+        content:''
+      }
     }
   },
   methods:{
@@ -59,6 +66,13 @@ export default {
       this.maskState = true
       this.promptState = true
       this.currentEvent = event
+    },
+    showDetail(event){
+      this.detailInfo.content = event.content
+      this.detailInfo.state = !this.detailInfo.state
+    },
+    closeDetail(){
+      this.detailInfo.state = !this.detailInfo.state
     },
     pcancel(){
       this.maskState = false

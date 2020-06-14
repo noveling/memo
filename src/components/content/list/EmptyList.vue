@@ -1,6 +1,6 @@
 <template>
   <div class="empty">
-    <div class="img-wrap"><slot name="img"><img src="~assets/img/cat.png" alt=""></slot></div>
+    <div class="img-wrap" v-if="showImg"><slot name="img"><img src="~assets/img/cat.png" alt=""></slot></div>
     <div class="txt">{{txt}}</div>
   </div>
 </template>
@@ -10,6 +10,9 @@ export default {
   props:{
     txt:{
       default:"还没有任何内容..."
+    },
+    showImg:{
+      default:true
     }
   }
 }

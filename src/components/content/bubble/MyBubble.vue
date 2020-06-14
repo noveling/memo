@@ -44,4 +44,5 @@ export default {
     max-width 55%
     max-height 100%
     word-break break-all
+    letter-spacing 2px
 </style>

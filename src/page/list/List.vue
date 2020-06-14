@@ -8,11 +8,12 @@
       <div class="content-wrap">
         <div class="content" v-if="this.event.length>0">
           <div class="header">日常清单</div>
-          <div class="list-item" v-for="(item,index) in event" :key="index">
+          <div class="list-item" v-for="(item,index) in event" :key="index" :class="{finished:item.state==2,todo:item.state==1,cancel:item.state==0}">
             <div class="txt">{{item.content}}</div>
             <div class="state">{{item.state|diaryState}}</div>
           </div>
         </div>
+        <div v-else><empty-list :showImg="false"></empty-list></div>
       </div>
     </my-scroll>
     <my-cue class="mycue" :showTime="false" @click.native="goHome" v-show="event.length < 4"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
@@ -24,14 +25,16 @@ import {mapState} from "vuex"
 import NavBar from "components/common/navbar/NavBar"
 import MyCue from "components/content/animate/MyCue"
 import MyScroll from "components/common/myscroll/MyScroll"
+import EmptyList from "components/content/list/EmptyList"
 export default {
-  computed:{
-    ...mapState(['event'])
-  },
   components:{
     NavBar,
     MyCue,
-    MyScroll
+    MyScroll,
+    EmptyList
+  },
+  computed:{
+    ...mapState(['event'])
   },
   methods:{
     goBack(){
@@ -67,6 +70,8 @@ export default {
       background-color $appColor
       color #ffffff
       box-shadow 2px 1px 3px rgba(0, 0, 0, 0.1)
+      .iconfont
+        font-size 20px
     .header
       height 50px
       flex-center()
@@ -90,9 +95,16 @@ export default {
           padding 0 5px
           border-right 1px solid #cccccc36
           text-ellipsis()
+          letter-spacing 2px
         .state
           flex 1
           flex-center()
+      .cancel
+        color #aaa
+        .txt
+          text-decoration line-through
+      .todo
+        color #fbca0d
     .mycue
       z-index 9
 </style>

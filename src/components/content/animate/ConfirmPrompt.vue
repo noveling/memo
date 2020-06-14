@@ -18,10 +18,10 @@ export default {
       default:"还没有内容!"
     },
     confirm:{
-      default:"确认..."
+      default:"确认"
     },
     cancel:{
-      default:"取消..."
+      default:"取消"
     }
   },
   methods:{

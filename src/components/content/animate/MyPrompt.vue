@@ -1,7 +1,9 @@
 <template>
   <div class="my-prompt" ref="myprompt">
     <div class="prompt-desc">
-      <div class="content-wrap">{{content|checkContent}}</div>
+      <div class="content-wrap">
+        <p>{{content|checkContent}}</p>
+      </div>
       <div class="option-box">
         <div class="confirm" @click="toConfirm">{{confirm}}</div>
         <div class="cancel" @click="toCancel">{{cancel}}</div>
@@ -21,7 +23,7 @@ export default {
       default:"我要提交"
     },
     cancel:{
-      default:"取消..."
+      default:"取消"
     }
   },
   filters:{
@@ -83,13 +85,19 @@ export default {
       align-items center
       .content-wrap
         width 280px
-        padding 4px
         word-break break-all
         border-radius 20px
         flex 1
-        flex-center()
+        overflow hidden
+        font-size 15px
         background-color #ffffff
         white-space pre-wrap
+        &>p
+          padding 15px
+          height 100%
+          flex-center()
+          margin 0
+          overflow hidden
       .option-box
         font-size 17px
         margin-top 10px

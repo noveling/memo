@@ -2,7 +2,7 @@
   <div class="item">
     <div class="event">
       <div class="txt">
-        <div class="desc">{{event.content}}</div>
+        <div class="desc" @click="showDetail">{{event.content}}</div>
         <div class="time">
           <div class="clock">{{event.time}}</div>
           <div class="date">{{event.date}}</div>
@@ -38,13 +38,16 @@ export default {
   methods:{
     toActive(){
       this.isActive = !this.isActive
-      this.$emit("itemState")
+      this.$emit('itemState')
     },
     renewEvent(){
       this.$emit('renew',this.event)
     },
     removeEvent(){
       this.$emit('remove',this.event)
+    },
+    showDetail(){
+      this.$emit('showDetail',this.event)
     }
   }
 }

@@ -6,7 +6,7 @@
     </nav-bar>
     <my-scroll class="myscroll" ref="myscroll">
       <event-list>
-        <event-item v-for="item in todo" :key="item.time+item.date" :event="item" @itemState="renewScroll" @renew="renewEvent($event)" @remove="removeEvent($event)">
+        <event-item v-for="item in todo" :key="item.time+item.date" :event="item" @itemState="renewScroll" @renew="renewEvent($event)" @remove="removeEvent($event)" @showDetail="showDetail($event)">
           <div class="tool-box" slot="tool">
             <div class=" iconfont complete" @click="completeEvent(item)"><span class="icon-complete"></span></div>
             <div class="iconfont cancel" @click="cancelEvent(item)"><span class="icon-cancel_dafalut"></span></div>
@@ -19,6 +19,7 @@
     <confirm-prompt class="prompt" v-if="promptState" :content="'是否'+promptInfo+'？'" confirm="确认" cancel="取消" @cancel="pcancel" @confirm="pconfirm(currentEvent.date,currentEvent.time)"></confirm-prompt>
     <empty-list v-show="todo.length == 0" txt="添加点内容吧..."></empty-list>
     <my-cue class="mycue" :showTime="false" v-if="todo.length < 4 && todo.length > 0"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
+    <detail v-if="detailInfo.state" :content="detailInfo.content" @close="closeDetail"></detail>
   </div>  
 </template>
 
@@ -28,6 +29,7 @@ import NavBar from "components/common/navbar/NavBar"
 import ConfirmPrompt from "components/content/animate/ConfirmPrompt"
 import EventItem from "components/content/list/EventItem"
 import EventList from "components/content/list/EventList"
+import Detail from "components/content/blackboard/Detail"
 import {mapGetters,mapActions} from "vuex"
 import EmptyList from "components/content/list/EmptyList"
 import MyCue from "components/content/animate/MyCue"
@@ -39,14 +41,19 @@ export default {
     EventList,
     EmptyList,
     ConfirmPrompt,
-    MyCue
+    MyCue,
+    Detail
   },
   data(){
     return {
       maskState:false,
       promptState:false,
       promptInfo:'',
-      currentEvent:()=>{}
+      currentEvent:()=>{},
+      detailInfo:{
+        state:false,
+        content:''
+      }
     }
   },
   methods:{
@@ -71,6 +78,13 @@ export default {
       this.maskState = true
       this.promptState = true
       this.currentEvent = event
+    },
+    showDetail(event){
+      this.detailInfo.content = event.content
+      this.detailInfo.state = !this.detailInfo.state
+    },
+    closeDetail(){
+      this.detailInfo.state = !this.detailInfo.state
     },
     pcancel(){
       this.maskState = false

@@ -60,6 +60,7 @@ const getters = {
 const mutations = {
   SET_DEFAULT_EVENT(state,val){
     state.event = val
+    cache.setLocal("eventList",state.event)
   },
   ADD_INTO_EVENT(state,val){
     state.event.unshift(val)
@@ -87,6 +88,10 @@ const mutations = {
     Vue.set(state.event,index,newVal)
     cache.setLocal("eventList",state.event)
   },
+  CLEAR_ALL(state){
+    state.event = []
+    cache.removeLocal("eventList")
+  }
 }
 const actions = {
   REMOVE_BY_TIME({commit,state},payload){
