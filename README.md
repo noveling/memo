@@ -44,7 +44,7 @@
 │   │   └── content              // 项目组件
 │   ├── page                   
 │   |   ├── cancel               // 取消页
-│   |   ├── complete             // 完成页
+│   |   ├── comPlete             // 完成页
 │   |   ├── edit                 // 编辑
 │   |   ├── home                 // 首页
 │   |   ├── list                 // 列表页

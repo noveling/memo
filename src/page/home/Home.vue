@@ -140,7 +140,7 @@ export default {
       position fixed
       top 44px
       bottom 0px
-      background-image url('~assets/img/night_star.png'),linear-gradient(180deg,#80d2bc,#87d2e5 36%,#93d6e7 77%,#eff9fd)
+      background-image url('~@/assets/img/nightstar.png'),linear-gradient(180deg,#80d2bc,#87d2e5 36%,#93d6e7 77%,#eff9fd)
       background-repeat no-repeat
       background-size 100% auto
       z-index 8
