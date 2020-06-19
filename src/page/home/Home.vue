@@ -85,12 +85,12 @@ export default {
       this.promptState = false
     },
     downloadData(fileName, content){
-        let aTag = document.createElement('a');
-        let blob = new Blob([content]);
-        aTag.download = fileName;
-        aTag.href = URL.createObjectURL(blob);
-        aTag.click();
-        URL.revokeObjectURL(blob);
+        let aTag = document.createElement('a')
+        let blob = new Blob([content])
+        aTag.download = fileName
+        aTag.href = URL.createObjectURL(blob)
+        aTag.click()
+        URL.revokeObjectURL(blob)
         aTag.remove()
     },
     loadData($event){
