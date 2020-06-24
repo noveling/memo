@@ -18,7 +18,7 @@
     <div class="mask" v-show="maskState"></div>
     <confirm-prompt class="prompt" v-if="promptState" :content="'是否'+promptInfo+'？'" confirm="确认" cancel="取消" @cancel="pcancel" @confirm="pconfirm(currentEvent.date,currentEvent.time)"></confirm-prompt>
     <empty-list v-show="todo.length == 0" txt="添加点内容吧..."></empty-list>
-    <my-cue class="mycue" :showTime="false" v-if="todo.length < 4 && todo.length > 0"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
+    <my-cue class="mycue" :showTime="false" v-if="todo.length < 3 && todo.length > 0"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
     <detail v-if="detailInfo.state" :content="detailInfo.content" @close="closeDetail"></detail>
   </div>  
 </template>

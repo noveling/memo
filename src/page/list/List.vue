@@ -16,7 +16,7 @@
         <div v-else><empty-list :showImg="false"></empty-list></div>
       </div>
     </my-scroll>
-    <my-cue class="mycue" :showTime="false" @click.native="goHome" v-show="event.length < 4"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
+    <my-cue class="mycue" :showTime="false" @click.native="goHome" v-show="event.length < 3"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
   </div>  
 </template>
 

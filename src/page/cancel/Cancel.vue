@@ -12,7 +12,7 @@
     <div class="mask" v-show="maskState"></div>
     <confirm-prompt class="prompt" v-if="promptState" :content="'是否'+promptInfo+'？'" confirm="确认" cancel="取消" @cancel="pcancel" @confirm="pconfirm(currentEvent.date,currentEvent.time)"></confirm-prompt>
     <empty-list v-show="cancel.length == 0" txt="就这样吧^-^"></empty-list>
-    <my-cue class="mycue" :showTime="false" v-if="cancel.length < 4 && cancel.length > 0"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
+    <my-cue class="mycue" :showTime="false" v-if="cancel.length < 3 && cancel.length > 0"><img slot="img" src="~assets/img/catcue.png" alt="..."></my-cue>
     <detail v-if="detailInfo.state" :content="detailInfo.content" @close="closeDetail"></detail>
   </div>  
 </template>

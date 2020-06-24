@@ -87,10 +87,17 @@ export default {
     downloadData(fileName, content){
         let aTag = document.createElement('a')
         let blob = new Blob([content])
+        let objURL = URL.createObjectURL(blob)
         aTag.download = fileName
-        aTag.href = URL.createObjectURL(blob)
-        aTag.click()
-        URL.revokeObjectURL(blob)
+        aTag.href = objURL
+        if(document.all){
+          aTag.click()
+        }else{
+        let e = document.createEvent("MouseEvents")
+        e.initEvent("click", true, true)
+        aTag.dispatchEvent(e)
+        }
+        URL.revokeObjectURL(objURL)
         aTag.remove()
     },
     loadData($event){

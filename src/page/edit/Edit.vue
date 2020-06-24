@@ -9,7 +9,7 @@
       <div class="bg-desc"><label for="edit">日程</label></div>
     </div>
     <my-cricle class="my-cricle" txt="提交" @click.native="submitEvent" v-show="!showPrompt"></my-cricle>
-    <my-cue ref="myclock" @click.native="toList"><img src="~assets/img/cute.png" alt="..." slot="img"></my-cue>
+    <my-cue class="my-cue" ref="myclock" @click.native="toList"><img src="~assets/img/cute.png" alt="..." slot="img"></my-cue>
     <div class="prompt" v-if="showPrompt"><my-prompt @cancel="cancelSubmit" @confirm="confirmSubmit" :content="submitContent"></my-prompt></div>
     <toast :toastMsg="toastData" v-if="toastState" class="toast"></toast>
     <div class="mask" v-if="showPrompt"></div>
@@ -138,6 +138,9 @@ export default {
       left 50%
       margin-left -150px
       z-index 99
+    .my-cue
+      @media screen and (max-height 550px)
+        display none
     .mask
       position fixed
       top 0
